@@ -20,7 +20,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
                     @can('home')
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                     @endcan
                     @can('suppliers.index')
                         <li class="breadcrumb-item"><a href="{{route('suppliers.index')}}">Proveedores</a></li>
@@ -38,7 +38,9 @@
                         </div>
 
                         {!! Form::open(['route'=>'suppliers.store', 'method'=>'POST', 'files'=>true]) !!}
-                            <div class="form-group" >
+
+                        <div class="row">
+                            <div class="form-group col-md-6" >
                                 <div id="icon_div">
                                     <label for="name">Nombre</label>
                                     <div class="input-group">
@@ -56,7 +58,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" >
+                            <div class="form-group col-md-6" >
                                 <div id="icon_div">
                                     <label for="place_origin">Lugar de origen</label>
                                     <div class="input-group">
@@ -74,10 +76,12 @@
                                 </div>
                             </div>
 
+                        </div>
+                            
                             @can('suppliers.index')
-                                <a href="{{route('suppliers.index')}}" class="btn btn-light float-right">Cancelar</a>
+                                <a href="{{route('suppliers.index')}}" class="btn btn-outline-dark btn-rounded float-right">Cancelar</a>
                             @endcan  
-                            <button type="submit" class="btn btn-primary mr-2 float-right">Registrar</button>                
+                            <button type="submit" class="btn btn-dark btn-rounded mr-2 float-right">Registrar</button>                
                         {!! Form::close() !!}
                     </div>                
                 </div>

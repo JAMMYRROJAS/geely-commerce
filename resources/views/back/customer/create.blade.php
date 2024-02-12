@@ -20,7 +20,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
                     @can('home')
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                     @endcan
                     @can('customers.index')
                         <li class="breadcrumb-item"><a href="{{route('customers.index')}}">Clientes</a></li>
@@ -38,32 +38,31 @@
                                 <h4 class="card-title">Registro de clientes</h4>
                             </div>
 
-                            <div class="form-group" >
-                                <div id="icon_div">
-                                    <label for="name">Nombre</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon3"><i class="fas fa-info-circle"></i></span>
-                                        </div>
-                                        <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Nombre del cliente" required>
-                                    </div>                                    
-                                </div>
-                            </div>
-
-                            <div class="form-group" >
-                                <div id="icon_div">
-                                    <label for=adress>Dirección</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon3"><i class="fas fa-home"></i></span>
-                                        </div>
-                                        <input type="text" name="adress" id="adress" class="form-control @error('adress') is-invalid @enderror" placeholder="Ejem: Calle 13" required>
+                            <div class="row">
+                                <div class="form-group col-md-3" >
+                                    <div id="icon_div">
+                                        <label for="name">Nombre</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3"><i class="fas fa-info-circle"></i></span>
+                                            </div>
+                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Nombre del cliente" required>
+                                        </div>                                    
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="form-group col-md-6" >
+                                <div class="form-group col-md-3" >
+                                    <div id="icon_div">
+                                        <label for=adress>Dirección</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3"><i class="fas fa-home"></i></span>
+                                            </div>
+                                            <input type="text" name="adress" id="adress" class="form-control @error('adress') is-invalid @enderror" placeholder="Ejem: Calle 13" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3" >
                                     <div id="icon_div">
                                         <label for="phone">Teléfono</label>
                                         <div class="input-group">
@@ -82,7 +81,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-6" >
+                                <div class="form-group col-md-3" >
                                     <div id="icon_div">
                                         <label for="dni">DNI</label>
                                         <div class="input-group">
@@ -102,9 +101,9 @@
                             </div>
 
                             @can('customers.index')
-                                <a href="{{route('customers.index')}}" class="btn btn-light float-right">Cancelar</a>
+                                <a href="{{route('customers.index')}}" class="btn btn-outline-dark btn-rounded float-right">Cancelar</a>
                             @endcan
-                            <button type="submit" class="btn btn-primary mr-2 float-right">Registrar</button>
+                            <button type="submit" class="btn btn-dark btn-rounded mr-2 float-right">Registrar</button>
                         </div>                
                     </div>
                 </div>

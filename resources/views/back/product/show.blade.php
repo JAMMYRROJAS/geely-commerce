@@ -5,7 +5,7 @@
 @section('styles')
     <style type="text/css">
         img.img-style {
-            width: 100%;
+            width: 70%;
             height: auto;
         }
     </style>
@@ -32,7 +32,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 @can('home')
-                    <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                 @endcan
                 @can('products.index')
                     <li class="breadcrumb-item"><a href="{{route('products.index')}}">Productos</a></li>
@@ -94,11 +94,11 @@
                             </div>
                             @if ($product->status == 'ACTIVATE')
                                 @can('change.status.products')
-                                    <a href="{{route('change.status.products', $product)}}" class="btn btn-success btn-block">ACTIVO</a>
+                                    <a href="{{route('change.status.products', $product)}}" class="btn btn-success btn-rounded btn-block">ACTIVO</a>
                                 @endcan
                             @else
                                 @can('change.status.products')
-                                    <a href="{{route('change.status.products', $product)}}" class="btn btn-danger btn-block">DESACTIVADO</a>
+                                    <a href="{{route('change.status.products', $product)}}" class="btn btn-danger btn-rounded btn-block">DESACTIVADO</a>
                                 @endcan
                             @endif
                         </div>
@@ -148,7 +148,7 @@
                 </div>
 
                 <div class="card-footer text-muted">
-                    <a href="{{ URL::previous() }}" class="btn btn-primary float-right">Regresar</a>
+                    <a href="{{route('products.index')}}" class="btn btn-outline-dark btn-rounded float-right">Regresar</a>
                 </div>
             </div>
         </div>

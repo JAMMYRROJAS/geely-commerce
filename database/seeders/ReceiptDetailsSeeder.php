@@ -2,17 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\ReceiptDetails;
 use Illuminate\Database\Seeder;
 
 class ReceiptDetailsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        //
+        ReceiptDetails::factory(500)->create();
     }
 }

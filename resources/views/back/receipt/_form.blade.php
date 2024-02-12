@@ -1,5 +1,5 @@
 <div class="form-row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
         <label for="supplier_id">Proveedor</label>
         <select name="supplier_id" id="supplier_id" class="form-control">
             <option value="" id="reset" disabled selected>--- Seleccione un proveedor ---</option>
@@ -9,21 +9,13 @@
         </select>
     </div>
 
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-3">
         <label for="product_id">Producto</label>
         <select name="product_id" id="product_id" class="form-control">
-            <option value="" id="reset" disabled selected>--- Seleccione un producto ---</option>
-            @foreach ($products as $product)
-                @if ($product->status == "ACTIVATE")
-                    <option value="{{$product->id}}">{{$product->name}}</option>
-                @endif
-            @endforeach
+            <option value="" disabled selected>--- Seleccione un proveedor primero ---</option>
         </select>
     </div>
-</div>
-
-<div class="row">
-    <div class="form-group col-md-6" >
+    <div class="form-group col-md-3" >
         <div id="icon_div">
             <label for="quantity">Cantidad</label>
             <div class="input-group">
@@ -35,7 +27,7 @@
         </div>
     </div>
 
-    <div class="form-group col-md-6" >
+    <div class="form-group col-md-3" >
         <div id="icon_div">
             <label for="price">Precio de compra</label>
             <div class="input-group">
@@ -48,8 +40,9 @@
     </div>
 </div>
 
+
 <div class="form-group clearfix" >
-    <button type="button" id="agregar" class="btn btn-primary float-right">
+    <button type="button" id="agregar" class="btn btn-dark btn-rounded float-right mt-4 py-3">
         Agregar producto
     </button>
 </div>

@@ -22,7 +22,7 @@
     <li class="no-hidden nav-item d-none d-lg-flex">
         @can('users.create')
             <a href="{{route('users.create')}}" class="nav-link">
-                <span class="btn btn-primary">
+                <span class="btn btn-dark btn-rounded">
                     + Usuario
                 </span>
             </a>
@@ -42,7 +42,7 @@
             <nav aria-label="breadcrumb">
                 @can('home')
                     <ol class="breadcrumb breadcrumb-custom">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
                     </ol>
                 @endcan
@@ -76,9 +76,7 @@
                                         @endcan
 
                                         @can('users.edit')
-                                            <a href="{{route('users.edit', $user)}}" class="jsgrid-button jsgrid-edit-button" title="Editar">
-                                                <i class="far fa-edit"></i>
-                                            </a>
+                                            <a href="{{route('users.edit', $user)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-edit"></i></a>
                                         @endcan
 
                                         @can('users.destroy')

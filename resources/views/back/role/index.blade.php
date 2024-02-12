@@ -33,7 +33,7 @@
             <nav aria-label="breadcrumb">
                 @can('home')
                     <ol class="breadcrumb breadcrumb-custom">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Roles</li>
                     </ol>
                 @endcan
@@ -63,9 +63,12 @@
                                 <td align="center" style="width:25px;">
                                     {!! Form::open(['route'=>['roles.edit', $role], 'method'=>'PUT']) !!}
                                         @can('roles.edit')
-                                            <a href="{{route('roles.edit', $role)}}" class="jsgrid-button jsgrid-edit-button" title="Editar">
-                                                <i class="far fa-edit"></i>
-                                            </a>
+
+                                            @if($role-> name != 'Administrador')
+                                                <a href="{{route('roles.edit', $role)}}" class="jsgrid-button jsgrid-edit-button" title="Editar">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                            @endif
                                         @endcan
 
                                         @can('roles.show')

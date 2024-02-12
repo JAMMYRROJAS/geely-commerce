@@ -18,7 +18,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
                     @can('home')
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                     @endcan
                     @can('roles.index')
                         <li class="breadcrumb-item"><a href="{{route('roles.index')}}">Roles</a></li>
@@ -35,9 +35,9 @@
 
                             @include('back.role._form')
                                                 
-                            <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
+                            <button type="submit" class="btn btn-dark btn-rounded mr-2">Actualizar</button>
                             @can('roles.index')
-                                <a href="{{route('roles.index')}}" class="btn btn-light">Cancelar</a>
+                                <a href="{{route('roles.index')}}" class="btn btn-outline-dark btn-rounded">Cancelar</a>
                             @endcan
                         {!! Form::close() !!}
                     </div>                

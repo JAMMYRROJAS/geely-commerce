@@ -20,7 +20,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
                     @can('home')
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                     @endcan
                     @can('receipts.index')
                         <li class="breadcrumb-item"><a href="{{route('receipts.index')}}">Compras</a></li>
@@ -44,10 +44,10 @@
                         
                         <div class="card-footer text-muted clearfix">
                             @can('receipts.index')
-                                <a href="{{route('receipts.index')}}" class="btn btn-light float-right">Cancelar</a>
+                                <a href="{{route('receipts.index')}}" class="btn btn-outline-dark btn-rounded float-right">Cancelar</a>
                             @endcan
 
-                            <button type="submit" id="guardar" class="btn btn-primary float-right mr-2">Registrar compra</button>
+                            <button type="submit" id="guardar" class="btn btn-dark btn-rounded float-right mr-2">Registrar compra</button>
                         </div>
                     {!! Form::close() !!}
                 </div>
@@ -66,9 +66,14 @@
                 agregar();
 
                 var select = document.getElementById("product_id");
-                //select.options[select.selectedIndex].style.display = "none";
                 select.options[select.selectedIndex].disabled = "true";
                 select.value = "";
+            });
+
+            $('#supplier_id').change(function() {
+                let supplier_id = $(this).val();
+
+                listProducts(supplier_id);
             });
         });
         
@@ -89,7 +94,7 @@
                 subtotal[cont] = quantity * price;
                 total = total + subtotal[cont];
                 
-                var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+')"><i class="fa fa-times"></i></button></td> <td><input type="hidden" name="product_id[]" value="'+product_id+'">'+producto+'</td> <td> <input type="hidden" id="price[]" name="price[]" value="' + price + '"> <input class="form-control" type="number" id="price[]" value="' + price + '" disabled> </td>  <td> <input type="hidden" name="quantity[]" value="' + quantity + '"> <input class="form-control" type="number" value="' + quantity + '" disabled> </td> <td align="right">s/' + subtotal[cont] + ' </td></tr>';
+                var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+')"><i class="fa fa-times"></i></button></td> <td><input type="hidden" name="product_id[]" value="'+product_id+'">'+producto+'</td> <td> <input type="hidden" id="price[]" name="price[]" value="' + price + '"> <input class="form-control" type="number" id="price[]" value="' + price + '"> </td>  <td> <input type="hidden" name="quantity[]" value="' + quantity + '"> <input class="form-control" type="number" value="' + quantity + '"> </td> <td align="right">s/' + subtotal[cont] + ' </td></tr>';
                 
                 cont++;
 
@@ -132,5 +137,19 @@
             $("#fila" + index).remove();
             evaluar();
         }        
+
+        function listProducts(supplierId) {
+        $.get("productsBySupplier/" + supplierId, function(response) {
+            let html = '';
+
+            html += '<option value="" selected disabled>--- Seleccione un producto ---</option>';
+            
+            for (let data of response) {
+                html += '<option value="' + data.id + '">' + data.name + '</option>';
+            }
+
+            $("#product_id").html(html);
+        });
+    }
     </script>
 @endsection

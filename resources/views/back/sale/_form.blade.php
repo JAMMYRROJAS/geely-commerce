@@ -23,7 +23,7 @@
 </div>
 
 <div class="row">
-    <div class="form-group col-md-6" >
+    <div class="form-group col-md-3" >
         <div id="icon_div">
             <label for="">Stock actual</label>
             <div class="input-group">
@@ -35,21 +35,7 @@
         </div>
     </div>
 
-    <div class="form-group col-md-6" >
-        <div id="icon_div">
-            <label for="quantity">Cantidad a vender</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3"><i class="fas fa-shopping-cart menu-iconn"></i></span>
-                </div>
-                <input type="number" name="quantity" id="quantity" class="form-control" placeholder="0">
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="form-group col-md-6" >
+    <div class="form-group col-md-3" >
         <div id="icon_div">
             <label for="">Precio de venta</label>
             <div class="input-group">
@@ -61,7 +47,20 @@
         </div>
     </div>
 
-    <div class="form-group col-md-6" >
+    <div class="form-group col-md-3" >
+        <div id="icon_div">
+            <label for="quantity">Cantidad a vender</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3"><i class="fas fa-shopping-cart menu-iconn"></i></span>
+                </div>
+                <input type="number" name="quantity" id="quantity" class="form-control" placeholder="0">
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="form-group col-md-3" >
         <div id="icon_div">
             <label for="discount">% Descuento</label>
             <div class="input-group">
@@ -74,8 +73,8 @@
     </div>
 </div>
 
-<div class="form-group clearfix" >
-    <button type="button" id="agregar" class="btn btn-primary float-right">Agregar producto</button>
+<div class="form-group clearfix">
+    <button type="button" id="agregar" class="btn btn-dark btn-rounded float-right">Agregar producto</button>
 </div>
 
 <div class="form-group">

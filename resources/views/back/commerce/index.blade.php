@@ -37,7 +37,7 @@
             <nav aria-label="breadcrumb">
                 @can('home')
                     <ol class="breadcrumb breadcrumb-custom">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Negocio</li>
                     </ol>
                 @endcan                
@@ -97,7 +97,7 @@
         </div><!--.row-->
 
         <div class="card-footer text-muted clearfix">
-            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal-2">Modificar información</button>
+            <button type="button" class="btn btn-dark btn-rounded float-right" data-toggle="modal" data-target="#exampleModal-2">Modificar información</button>
         </div>
     </div><!--.content-wrapper-->
 

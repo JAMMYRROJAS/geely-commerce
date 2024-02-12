@@ -20,7 +20,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
                     @can('home')
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                     @endcan
                     @can('sales.index')
                         <li class="breadcrumb-item"><a href="{{route('sales.index')}}">Ventas</a></li>
@@ -44,10 +44,10 @@
                         
                         <div class="card-footer text-muted clearfix">
                             @can('sales.index')
-                                <a href="{{route('sales.index')}}" class="btn btn-light float-right">Cancelar</a>
+                                <a href="{{route('sales.index')}}" class="btn btn-outline-dark btn-rounded float-right">Cancelar</a>
                             @endcan
 
-                            <button type="submit" id="guardar" class="btn btn-primary float-right mr-2">Registrar venta</button>
+                            <button type="submit" id="guardar" class="btn btn-dark btn-rounded float-right mr-2">Registrar venta</button>
                         </div>
                     {!! Form::close() !!}
                 </div>
@@ -61,17 +61,15 @@
     {!! Html::script('plantilla/js/avgrund.js') !!}
 
     <script>
-        if (save == 1) {
-            $(document).ready(function () {
-                $("#agregar").click(function () {
-                    agregar();
+        $(document).ready(function () {
+            $("#agregar").click(function () {
+                agregar();
 
-                    var select = document.getElementById("product_id");
-                    select.options[select.selectedIndex].disabled = "true";
-                    select.value = "";
-                });
+                var select = document.getElementById("product_id");
+                select.options[select.selectedIndex].disabled = "true";
+                select.value = "";
             });
-        }
+        });
 
         var save = 0;
         var cont = 1;
@@ -82,23 +80,28 @@
         $("#product_id").change(mostrarValores);
 
         function mostrarValores() {
-            datosProducto = document.getElementById('product_id').value.split('_');
+            let datosProducto = document.getElementById('product_id').value.split('_');
+
             $("#stock").val(datosProducto[1]);
             $("#price").val(datosProducto[2]);
         }
 
-        function agregar() {    
-            datosProducto = document.getElementById('product_id').value.split('_');
+        function agregar() {
+            let producto = document.getElementById('product_id').value.split('_');
 
-            product_id = datosProducto[0];
+            product_id = producto[0];
             producto = $("#product_id option:selected").text();
             quantity = $("#quantity").val();
             discount = $("#discount").val();
             price = $("#price").val();
             stock = $("#stock").val();
 
-            if (product_id != "" && quantity != "" && quantity > 0 && quantity%1 == 0 && discount != "" && price != "" && producto != "" && producto != "--- Seleccione un producto ---") {
+            if (product_id != "" && quantity != "" && price != "" && producto != "" && producto != "--- Seleccione un producto ---") {
                 if (parseInt(stock) >= parseInt(quantity)) {
+                    if (discount == "") {
+                        discount = 0;
+                    }
+
                     subtotal[cont] = (quantity * price) - (quantity * price * discount / 100);
                     total = total + subtotal[cont];
                     
@@ -111,17 +114,21 @@
                     $('#detalles').append(fila);
                     save = 1;
                 } else {
-                    Swal.fire({
-                        type: 'error',
-                        text: 'La cantidad a vender supera el stock.',
-                        save = 0;
+                    swal({
+                        title: `Ups! Algo salió mal`,
+                        text: "Rellene todos los campos o verifique los datos",
+                        icon: "warning",
+                        button: "OK",
+                        dangerMode: true,
                     })
                 }
             } else {
-                Swal.fire({
-                    type: 'error',
-                    text: 'Rellene todos los campos o verifique los datos',
-                    save = 0;
+                swal({
+                    title: `Ups! Algo salió mal`,
+                    text: "Rellene todos los campos o verifique los datos",
+                    icon: "warning",
+                    button: "OK",
+                    dangerMode: true,
                 })
             }
         }

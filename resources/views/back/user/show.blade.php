@@ -20,7 +20,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-custom">
                 @can('home')
-                    <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                 @endcan
                 @can('users.index')
                     <li class="breadcrumb-item"><a href="{{route('users.index')}}">Usuarios</a></li>
@@ -196,7 +196,7 @@
                 </div>
                 <div class="card-footer text-muted">
                     @can('users.index')
-                        <a href="{{route('users.index')}}" class="btn btn-primary float-right">Regresar</a>
+                        <a href="{{route('users.index')}}" class="btn btn-outline-dark btn-rounded float-right">Regresar</a>
                     @endcan
                 </div>
             </div>

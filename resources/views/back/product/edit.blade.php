@@ -20,7 +20,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
                     @can('home')
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                     @endcan
                     @can('products.index')
                         <li class="breadcrumb-item"><a href="{{route('products.index')}}">Productos</a></li>
@@ -38,12 +38,58 @@
                         </div>
 
                         {!! Form::model($product, ['route'=>['products.update',$product->id], 'method'=>'PUT', 'files'=>true]) !!}
-                            <div class="form-group" >
-                                <div id="icon_div">
-                                    <label for="name">Nombre</label>
-                                    <input type="text" name="name" id="name" value="{{$product->name}}" class="form-control" required>
+                            <div class="row">
+                                <div class="form-group col-md-3" >
+                                    <div id="icon_div">
+                                        <label for="name">Nombre</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3"><i class="fa fa-info-circle"></i></span>
+                                            </div>
+                                            <input type="text" name="name" id="name" value="{{$product->name}}" class="form-control" required>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="form-group col-md-3" >
+                                    <div id="icon_div">
+                                        <label for=sell_price>Precio de venta</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon3">s/</span>
+                                            </div>
+                                            <input type="number" name=sell_price id=sell_price value="{{$product->sell_price}}" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3" >
+                                    <label for=category_id>Categoría</label>
+                                    <select name="category_id" id="category_id" class="form-control">
+                                        @foreach ($categories as $category)
+                                            <option value="{{$category->id}}"
+                                                @if($category->id == $product->category_id)
+                                                    selected
+                                                @endif
+                                            >{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group col-md-3" >
+                                    <label for=supplier_id>Proveedor</label>
+                                    <select name="supplier_id" id="supplier_id" class="form-control">
+                                        @foreach ($suppliers as $supplier)
+                                            <option value="{{$supplier->id}}" 
+                                                @if($supplier->id == $product->supplier_id)
+                                                    selected
+                                                @endif
+                                            >{{$supplier->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                             </div>
+                            
 
                             <div class="row">
                                 <div class="form-group col-md-7" >
@@ -57,44 +103,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" >
-                                <div id="icon_div">
-                                    <label for=sell_price>Precio de venta</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon3">s/</span>
-                                        </div>
-                                        <input type="number" name=sell_price id=sell_price value="{{$product->sell_price}}" class="form-control" required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group" >
-                                <label for=category_id>Categoría</label>
-                                <select name="category_id" id="category_id" class="form-control">
-                                    @foreach ($categories as $category)
-                                        <option value="{{$category->id}}"
-                                            @if($category->id == $product->category_id)
-                                                selected
-                                            @endif
-                                        >{{$category->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            
-                            <div class="form-group" >
-                                <label for=supplier_id>Proveedor</label>
-                                <select name="supplier_id" id="supplier_id" class="form-control">
-                                    @foreach ($suppliers as $supplier)
-                                        <option value="{{$supplier->id}}" 
-                                            @if($supplier->id == $product->supplier_id)
-                                                selected
-                                            @endif
-                                        >{{$supplier->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
                             <div class="form-group">
                                 <h4 class="card-title d-flex">Imagen del producto
                                     <small class="ml-auto align-self-end">
@@ -104,9 +112,9 @@
                                 <input type="file" name="image" id="image" class="dropify" />
                             </div>
                             
-                            <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
+                            <button type="submit" class="btn btn-dark btn-rounded float-right">Actualizar</button>
                             @can('products.index')
-                                <a href="{{route('products.index')}}" class="btn btn-light">Cancelar</a>
+                                <a href="{{route('products.index')}}" class="btn btn-outline-dark btn-rounded mr-2 float-right">Cancelar</a>
                             @endcan                      
                         {!! Form::close() !!}
                     </div>                

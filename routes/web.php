@@ -37,6 +37,8 @@ Route::resource('receipts', ReceiptController::class)->names('receipts')->except
     'edit', 'update', 'destroy'
 ]);
 
+Route::get('receipts/productsBySupplier/{supplier_id}', [ReceiptController::class, 'productsBySupplier'])->name('receipts.productsBySupplier');
+
 Route::resource('sales', SaleController::class)->names('sales')->except([
     'edit', 'update', 'destroy'
 ]);

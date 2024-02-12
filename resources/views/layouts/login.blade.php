@@ -29,14 +29,14 @@
               <div class="brand-logo">
                 <img src="{{asset('plantilla/images/logo.svg')}}" alt="logo">
               </div>
-              <h4>Wayri - accesorios</h4>
+              <h4>Comercializadora Geely</h4>
 
               @yield('content')
 
             </div>
           </div>
           <div class="col-lg-6 login-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2023 Todos los derechos reservados <a href="#">Wayri - accesorios</a></p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2024 Todos los derechos reservados - Comercializadora Geely</p>
           </div>
         </div>
       </div>

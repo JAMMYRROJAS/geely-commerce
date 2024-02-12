@@ -27,7 +27,7 @@
     <li class="no-hidden nav-item d-none d-lg-flex">
         @can('sales.create')
             <a href="{{route('sales.create')}}" class="nav-link">
-                <span class="btn btn-primary">
+                <span class="btn btn-dark btn-rounded">
                     + Venta
                 </span>
             </a>
@@ -47,7 +47,7 @@
             <nav aria-label="breadcrumb">
                 @can('home')
                     <ol class="breadcrumb breadcrumb-custom">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Ventas</li>
                     </ol>
                 @endcan

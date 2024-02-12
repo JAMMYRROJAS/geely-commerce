@@ -36,10 +36,20 @@ class ReceiptController extends Controller
     public function create()
     {
         $suppliers = Supplier::get();
-        $products = Product::where('status', 'ACTIVATE')->get();
 
-        return view('back.receipt.create', compact('suppliers','products'));
+        return view('back.receipt.create', compact('suppliers'));
     }
+
+    public function productsBySupplier($supplier_id)
+    {
+        $products = Product::where('supplier_id', $supplier_id)
+            ->where('status', 'ACTIVATE')
+            ->get();
+
+        return response()->json($products);
+    }
+
+
 
     public function store(StoreReceiptRequest $request)
     {

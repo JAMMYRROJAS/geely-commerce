@@ -21,7 +21,7 @@
                 <ol class="breadcrumb breadcrumb-custom">
                     @can('home')
                         <li class="breadcrumb-item">
-                            <a href="{{route('home')}}">Dashboard</a>
+                            <a href="{{route('home')}}">Inicio</a>
                         </li>
                     @endcan
                     @can('categories.index')
@@ -47,9 +47,9 @@
                             @include('back.category._form')
 
                             @can('categories.index')
-                                <a href="{{route('categories.index')}}" class="btn btn-light float-right">Cancelar</a>
+                                <a href="{{route('categories.index')}}" class="btn btn-outline-dark btn-rounded float-right">Cancelar</a>
                             @endcan
-                            <button type="submit" class="btn btn-primary mr-2 float-right">Registrar</button>
+                            <button type="submit" class="btn btn-dark btn-rounded mr-2 float-right">Registrar</button>
                         {!! Form::close() !!}
                     </div>                
                 </div>

@@ -20,24 +20,18 @@
       <li class="nav-item">
           <a class="nav-link" href="{{route('home')}}">
             <i class="fa fa-home menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
+            <span class="menu-title">Inicio</span>
           </a>
       </li>
     @endcan
 
     @can('reports.day')
+
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#apps" aria-expanded="false" aria-controls="apps">
-          <i class="fas fa-chart-line menu-icon"></i>
-          <span class="menu-title">Reportes</span>
-          <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse" id="apps">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('reports.day')}}"> Reportes por día </a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{route('reports.date')}}"> Reportes por fecha </a></li>
-          </ul>
-        </div>
+          <a class="nav-link" href="{{route('reports.date')}}">
+            <i class="fas fa-chart-line menu-icon"></i>
+            <span class="menu-title">Reportes</span>
+          </a>
       </li>
     @endcan
     

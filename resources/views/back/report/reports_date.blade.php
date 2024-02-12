@@ -28,12 +28,12 @@
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title">
-                Reporte por rango de fecha
+                Reporte de ventas por fecha
             </h3>
             <nav aria-label="breadcrumb">
                 @can('home')
                     <ol class="breadcrumb breadcrumb-custom">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Reportes de ventas</li>
                     </ol>
                 @endcan
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-12 col-md-3 text-center mt-4">
                                     <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-sm">Consultar</button>
+                                    <button type="submit" class="btn btn-dark btn-rounded btn-sm">Consultar</button>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-3 text-center">

@@ -7,7 +7,7 @@
       <div class="input-group">
         <div class="input-group-prepend bg-transparent">
           <span class="input-group-text bg-transparent border-right-0">
-            <i class="fa fa-user text-primary"></i>
+            <i class="fa fa-user text-dark"></i>
           </span>
         </div>
         <input id="email" type="email" name="email" class="form-control form-control-lg border-left-0 @error('email') is-invalid @enderror" id="email" placeholder="ejemplo@gmail.com" required>
@@ -23,7 +23,7 @@
       <div class="input-group">
         <div class="input-group-prepend bg-transparent">
           <span class="input-group-text bg-transparent border-right-0">
-            <i class="fa fa-lock text-primary"></i>
+            <i class="fa fa-lock text-dark"></i>
           </span>
         </div>
         <input id="password" type="password" name="password" class="form-control form-control-lg border-left-0 @error('password') is-invalid @enderror" id="password" placeholder="********" required>   
@@ -34,16 +34,8 @@
         @enderror                  
       </div>
     </div>
-    <div class="my-2 d-flex justify-content-between align-items-center">
-      <div class="form-check">
-        <label class="form-check-label text-muted">
-          <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} class="form-check-input">
-          Mantenerme registrado
-        </label>
-      </div>
-    </div>
     <div class="my-3">
-      <button class="btn btn-primary btn-lg btn-block" type="submit">
+      <button class="btn btn-rounded btn-dark btn-lg btn-block" type="submit">
         INICIAR SESIÓN
       </button>
     </div>
