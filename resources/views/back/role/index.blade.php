@@ -31,12 +31,10 @@
                 Roles del sistema
             </h3>
             <nav aria-label="breadcrumb">
-                @can('home')
-                    <ol class="breadcrumb breadcrumb-custom">
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Roles</li>
-                    </ol>
-                @endcan
+                <ol class="breadcrumb breadcrumb-custom">
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Roles</li>
+                </ol>
             </nav>
         </div>
 

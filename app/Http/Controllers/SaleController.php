@@ -77,14 +77,14 @@ class SaleController extends Controller
 
     public function pdf(Sale $sale) {
         $subtotal = 0;
-        $receiptDetails = $receipt->receiptDetails;
+        $saleDetails = $sale->saleDetails;
         
-        foreach ($receiptDetails as $receiptDetail) {
-            $subtotal += $receiptDetail->quantity * $receiptDetail->price;
+        foreach ($saleDetails as $saleDetail) {
+            $subtotal += $saleDetail->quantity * $saleDetail->price;
         }
 
-        $pdf = PDF::loadView('back.receipt.pdf', compact('receipt', 'subtotal', 'receiptDetails'));
+        $pdf = PDF::loadView('back.sale.pdf', compact('sale', 'subtotal', 'saleDetails'));
 
-        return $pdf->download('Reporte_de_compra_'.$receipt->id.'.pdf');
+        return $pdf->download('Reporte_de_venta_'.$sale->id.'.pdf');
     }
 }

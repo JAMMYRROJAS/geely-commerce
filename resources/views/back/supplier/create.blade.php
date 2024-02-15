@@ -19,9 +19,7 @@
             </h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
-                    @can('home')
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                    @endcan
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                     @can('suppliers.index')
                         <li class="breadcrumb-item"><a href="{{route('suppliers.index')}}">Proveedores</a></li>
                     @endcan

@@ -25,7 +25,7 @@
       </li>
     @endcan
 
-    @can('reports.day')
+    @can('reports.date')
 
       <li class="nav-item">
           <a class="nav-link" href="{{route('reports.date')}}">

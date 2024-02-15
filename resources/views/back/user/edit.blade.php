@@ -17,9 +17,7 @@
             <h3 class="page-title">Editar usuario</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-custom">
-                    @can('home')
-                        <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                    @endcan
+                    <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
                     @can('users.index')
                         <li class="breadcrumb-item"><a href="{{route('users.index')}}">Usuarios</a></li>
                     @endcan

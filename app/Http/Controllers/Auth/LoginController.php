@@ -34,15 +34,8 @@ class LoginController extends Controller
 
     public function redirectTo(){
         Alert::alert()->success('Bienvenido', 'Inicio de sesión exitoso!');
+        return $this->redirectTo = route('home'); 
 
-        if(Auth::user()->hasRole('Administrador'))
-        {
-            return $this->redirectTo = route('home');            
-        }
-        elseif(Auth::user()->hasRole('Vendedor'))
-        {
-            return $this->redirectTo = route('reports.day');
-        }
     }
 
     /**

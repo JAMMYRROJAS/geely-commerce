@@ -26,10 +26,6 @@ class PermissionsTableSeeder extends Seeder
         Permission::create(['name'=>'users.destroy', 
                             'description'=>'Eliminar usuarios'])->syncRoles([$admin]);
 
-        //Permisos para el dashboard
-        Permission::create(['name'=>'home',
-                            'description'=>'Navegar por el dashboard'])->syncRoles([$admin]);
-
         //Permisos para mantenimiento de categorías
         Permission::create(['name'=>'categories.index',
                             'description'=>'Ver listado de categorías'])->syncRoles([$admin]);
@@ -113,8 +109,6 @@ class PermissionsTableSeeder extends Seeder
                             'description'=>'Actualizar datos del negocio'])->syncRoles([$admin]);
     
         //Permisos para los reportes
-        Permission::create(['name'=>'reports.day',
-                            'description'=>'Reportes por día'])->syncRoles([$admin, $seller]);
         Permission::create(['name'=>'reports.date',
                             'description'=>'Reportes por fecha'])->syncRoles([$admin, $seller]);
         Permission::create(['name'=>'report.results',

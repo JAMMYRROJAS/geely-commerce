@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sistema de Ventas - Wayri</title>
+  <title>Sistema de Ventas - Geely</title>
   <!-- plugins:css -->
   {!! Html::style('plantilla/vendors/iconfonts/font-awesome/css/all.min.css') !!}
   {!! Html::style('plantilla/vendors/css/vendor.bundle.base.css') !!}
